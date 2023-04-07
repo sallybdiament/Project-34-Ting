@@ -17,4 +17,4 @@ def exists_word(word, instance):
 
 
 def search_by_word(word, instance):
-    pass
+    return []
