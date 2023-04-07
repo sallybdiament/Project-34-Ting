@@ -1,12 +1,13 @@
 from ting_file_management.file_management import txt_importer
 import sys
 
+
 def process(path_file, instance):
     for element in instance.data:
-       if element['nome_do_arquivo'] == path_file:
-           return None
+        if element['nome_do_arquivo'] == path_file:
+            return None
     content_file = txt_importer(path_file)
-    words_dict = {  
+    words_dict = {
         'nome_do_arquivo': path_file,
         'qtd_linhas': len(content_file),
         'linhas_do_arquivo': content_file
@@ -20,8 +21,9 @@ def remove(instance):
         print("Não há elementos", file=sys.stdout)
     else:
         removed = instance.dequeue()
-        print(f"Arquivo {removed['nome_do_arquivo']} removido com sucesso", file=sys.stdout)
-   
+        message = f"Arquivo {removed['nome_do_arquivo']} removido com sucesso"
+        print(message, file=sys.stdout)
+
 
 def file_metadata(instance, position):
     try:
@@ -29,4 +31,3 @@ def file_metadata(instance, position):
         print(result, file=sys.stdout)
     except IndexError:
         print("Posição inválida", file=sys.stdout)
-
